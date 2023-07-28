@@ -1,0 +1,23 @@
+{
+  "name": "commercebay",
+  "version": "1.0.0",
+  "description": "eCommerce application built with the MERN Stack",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weikangg/CommerceBay.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weikangg/CommerceBay/issues"
+  },
+  "homepage": "https://github.com/weikangg/CommerceBay#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
