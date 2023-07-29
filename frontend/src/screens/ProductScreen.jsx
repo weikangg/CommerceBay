@@ -1,12 +1,34 @@
-import { useParams, Link } from "react-router-dom";
-import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
+import { useState } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import {
+  Row,
+  Col,
+  Image,
+  ListGroup,
+  Card,
+  Button,
+} from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import Dropdown from "react-bootstrap/Dropdown";
 import Rating from "../components/Rating";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { useGetProductDetailsQuery } from "../slices/productsApiSlice";
+import { addToCart } from "../slices/cartSlice";
 
 const ProductScreen = () => {
   const { id: productId } = useParams();
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [qty, setQty] = useState(1);
+
+  const addToCartHandler = () => {
+    dispatch(addToCart({ ...product, qty }));
+    navigate("/cart");
+  };
+
   const {
     data: product,
     error,
@@ -66,11 +88,46 @@ const ProductScreen = () => {
                       </Col>
                     </Row>
                   </ListGroup.Item>
+                  {product.countInStock > 0 && (
+                    <ListGroup.Item>
+                      <Row>
+                        <Col>Qty:</Col>
+                        <Col>
+                          <Dropdown
+                            onSelect={(eventKey) => setQty(Number(eventKey))}
+                          >
+                            <Dropdown.Toggle
+                              variant="light"
+                              id="dropdown-basic"
+                            >
+                              {qty}
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu
+                              style={{
+                                maxHeight: "200px",
+                                overflowY: "scroll",
+                              }}
+                            >
+                              {[...Array(product.countInStock).keys()].map(
+                                (x) => (
+                                  <Dropdown.Item key={x + 1} eventKey={x + 1}>
+                                    {x + 1}
+                                  </Dropdown.Item>
+                                )
+                              )}
+                            </Dropdown.Menu>
+                          </Dropdown>
+                        </Col>
+                      </Row>
+                    </ListGroup.Item>
+                  )}
                   <ListGroup.Item>
                     <Button
                       className="btn-block"
                       type="button"
                       disabled={product.countInStock === 0}
+                      onClick={addToCartHandler}
                     >
                       Add to Cart
                     </Button>
