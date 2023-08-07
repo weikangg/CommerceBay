@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { Provider } from "react-redux";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
 import store from "./store";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";

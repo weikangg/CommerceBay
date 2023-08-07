@@ -11,7 +11,7 @@ const Meta = ({ title, description, keywords }) => {
 };
 
 Meta.defaultProps = {
-  title: "Welcome To CommerceBay",
+  title: "CommerceBay",
   description: "We sell the best products at cheap prices",
   keywords: "electronics, buy electronics, cheap electroincs",
 };

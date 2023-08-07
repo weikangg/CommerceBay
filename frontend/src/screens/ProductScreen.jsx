@@ -14,6 +14,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Rating from "../components/Rating";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
+import Meta from "../components/Meta";
 import {
   useGetProductDetailsQuery,
   useCreateReviewMutation,
@@ -73,6 +74,7 @@ const ProductScreen = () => {
         </Message>
       ) : (
         <>
+          <Meta title={product.name} />
           <Row>
             <Col md={6}>
               <Image src={product.image} alt={product.name} fluid />
