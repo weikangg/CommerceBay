@@ -1,4 +1,4 @@
-import path from 'path';
+import path from "path";
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
@@ -30,18 +30,19 @@ app.get("/api/config/paypal", (req, res) =>
   res.send({ clientId: process.env.PAYPAL_CLIENT_ID })
 );
 
-const __dirname = path.resolve(); // Set __dirname to current directory
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
-
 if (process.env.NODE_ENV === "production") {
+  const __dirname = path.resolve(); // Set __dirname to current directory
+  app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
   // Set frontend/build as a static folder
   app.use(express.static(path.join(__dirname, "/frontend/build")));
 
   // Any route that is not an api route, will be redirected to index.html
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
-  );
-} else{
+  const root = path.join(__dirname, '..', 'frontend', 'build', 'index.html')
+    
+  app.get('*', (req, res) => {
+      res.sendFile(path.resolve(root) , 'index.html')
+  });
+} else {
   app.get("/", (req, res) => {
     res.send("API is running...");
   });
