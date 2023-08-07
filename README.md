@@ -1,8 +1,7 @@
 <h1 align="center"> :office: CommerceBay</h1>
 
-<p align="center">
-  ![Screenshot 2023-08-07 223134](https://github.com/weikangg/CommerceBay/assets/95838788/b3f47e1d-5eb6-47e8-93a3-d2a67fc26949)
-</p>
+![Screenshot 2023-08-07 223134](https://github.com/weikangg/CommerceBay/assets/95838788/b3f47e1d-5eb6-47e8-93a3-d2a67fc26949)
+
 
 CommerceBay is a robust, full-stack e-commerce platform built using the MERN stack (MongoDB, Express, React, Node.js). It's designed to provide a seamless and user-friendly online shopping experience. It offers a suite of features such as a fully functional shopping cart, product reviews and ratings, top product carousels, product search, and user profile management. On the administrative side, it provides comprehensive product and user management tools, including an advanced checkout process with integrated PayPal and Credit Card payment options. Developed with a focus on end-to-end software development skillset, CommerceBay leverages modern technologies such as React hooks, Redux for global state management, JWT authentication with HTTP-only cookies, and the integration of PayPal API.
 
